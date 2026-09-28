@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="600.0" prefWidth="780.0" spacing="14" styleClass="root-pane" stylesheets="@style.css"
+      xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="kfsteel.expedicao.ProjetosController">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Cabeçalho -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <VBox HBox.hgrow="ALWAYS">
+            <Label styleClass="header-title" text="KF Steel - Projetos de Expedição"/>
+        </VBox>
+        <Button onAction="#handleSair" styleClass="btn-secondary" text="Sair"/>
+    </HBox>
+
+    <Separator/>
+
+    <!-- Formulário de criação -->
+    <GridPane hgap="12" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints minWidth="140" prefWidth="140"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label styleClass="label-bold" text="Cor da etiqueta" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="cbCor" editable="true" maxWidth="Infinity" promptText="Selecione ou digite a cor"
+                  styleClass="combo-field" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label styleClass="label-bold" text="Número do pedido" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtNumeroPedido" promptText="Ex.: 1043" styleClass="input-field"
+                   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <!-- Lista de pedidos -->
+    <ListView fx:id="listaProjetos" styleClass="project-list" VBox.vgrow="ALWAYS"/>
+
+    <!-- Ações + pesquisa -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button onAction="#handleCriar" prefWidth="100" styleClass="btn-primary" text="Criar"/>
+        <Button onAction="#handleExcluir" prefWidth="100" styleClass="btn-danger" text="Excluir"/>
+        <Button onAction="#handleAbrir" prefWidth="100" styleClass="btn-secondary" text="Abrir"/>
+        <Region prefWidth="20"/>
+        <TextField fx:id="txtPesquisa" onAction="#handlePesquisar" promptText="Digite o número do pedido..."
+                   styleClass="input-field" HBox.hgrow="ALWAYS"/>
+        <Button onAction="#handlePesquisar" styleClass="btn-primary" text="Pesquisar"/>
+    </HBox>
+
+</VBox>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane prefHeight="420.0" prefWidth="380.0" styleClass="root-pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kfsteel.expedicao.LoginController">
+    <children>
+        <!-- Cartão Central -->
+        <VBox alignment="TOP_CENTER" layoutX="40.0" layoutY="45.0" prefWidth="300.0" spacing="16.0" styleClass="login-card">
+            <children>
+                <!-- Círculo do Avatar -->
+                <StackPane styleClass="avatar-container">
+                    <Circle radius="38.0" styleClass="avatar-circle" />
+                    <Label styleClass="avatar-icon" text="👤" />
+                </StackPane>
+
+                <Label styleClass="login-title" text="LOGIN" />
+
+                <!-- Campo Usuário com fx:id -->
+                <HBox styleClass="input-group">
+                    <Label styleClass="input-icon" text="👤" />
+                    <TextField fx:id="usernameField" promptText="Username" styleClass="custom-input" HBox.hgrow="ALWAYS" />
+                </HBox>
+
+                <!-- Campo Senha com fx:id -->
+                <HBox styleClass="input-group">
+                    <Label styleClass="input-icon" text="🔒" />
+                    <PasswordField fx:id="passwordField" promptText="••••••••••••" styleClass="custom-input" HBox.hgrow="ALWAYS" />
+                </HBox>
+
+                <HBox alignment="CENTER_LEFT" styleClass="options-box">
+                    <children>
+                        <CheckBox fx:id="rememberMeCheckBox" styleClass="custom-checkbox" text="Remember me" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Hyperlink onAction="#handleAbrirCadastro" styleClass="forgot-link" text="Criar Conta" />
+                    </children>
+                </HBox>
+
+                <!-- Botão de Login com fx:id e onAction -->
+                <Button fx:id="loginButton" onAction="#handleLogin" prefHeight="42.0" prefWidth="250.0" styleClass="login-button" text="LOGIN" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

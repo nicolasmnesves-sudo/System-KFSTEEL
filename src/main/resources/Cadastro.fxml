@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane prefHeight="480.0" prefWidth="380.0" styleClass="root-pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kfsteel.expedicao.CadastroController">
+    <children>
+        <VBox alignment="TOP_CENTER" layoutX="40.0" layoutY="35.0" prefWidth="300.0" spacing="14.0" styleClass="login-card">
+            <children>
+                <!-- Avatar -->
+                <StackPane styleClass="avatar-container">
+                    <Circle radius="38.0" styleClass="avatar-circle" />
+                    <Label styleClass="avatar-icon" text="👤" />
+                </StackPane>
+
+                <Label styleClass="login-title" text="CRIAR CONTA" />
+
+                <!-- Campo Usuário -->
+                <HBox styleClass="input-group">
+                    <Label styleClass="input-icon" text="👤" />
+                    <TextField fx:id="usernameField" promptText="Novo Usuário" styleClass="custom-input" HBox.hgrow="ALWAYS" />
+                </HBox>
+
+                <!-- Campo Senha -->
+                <HBox styleClass="input-group">
+                    <Label styleClass="input-icon" text="🔒" />
+                    <PasswordField fx:id="passwordField" promptText="Nova Senha" styleClass="custom-input" HBox.hgrow="ALWAYS" />
+                </HBox>
+
+                <!-- Confirmar Senha -->
+                <HBox styleClass="input-group">
+                    <Label styleClass="input-icon" text="🔒" />
+                    <PasswordField fx:id="confirmPasswordField" promptText="Confirmar Senha" styleClass="custom-input" HBox.hgrow="ALWAYS" />
+                </HBox>
+
+                <!-- Botão Cadastrar -->
+                <Button onAction="#handleCadastrar" prefHeight="42.0" prefWidth="250.0" styleClass="login-button" text="CADASTRAR" />
+
+                <!-- Link para voltar ao Login -->
+                <Hyperlink onAction="#handleVoltarLogin" styleClass="forgot-link" text="Já possui uma conta? Voltar ao Login" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

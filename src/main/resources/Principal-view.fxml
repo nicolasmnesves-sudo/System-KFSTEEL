@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="740.0" prefWidth="940.0" spacing="15" styleClass="root-pane" stylesheets="@style.css"
+      xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="kfsteel.expedicao.MainController">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Cabeçalho -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <VBox HBox.hgrow="ALWAYS">
+            <Label styleClass="header-title" text="KF Steel - Controle de Expedição"/>
+        </VBox>
+        <Label fx:id="lblBadge" styleClass="badge-etiqueta" text="Pedido"/>
+        <Button onAction="#handleVoltar" styleClass="btn-secondary" text="← Projetos"/>
+    </HBox>
+
+    <Separator/>
+
+    <!-- Leitura de código de barras -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label styleClass="label-bold" text="Código de Barras:"/>
+        <TextField fx:id="txtCodigoBarras" onAction="#handleConferirPeca" promptText="Bipe ou digite o código da peça..."
+                   styleClass="input-field" HBox.hgrow="ALWAYS"/>
+        <Button onAction="#handleConferirPeca" styleClass="btn-primary" text="Conferir Peça"/>
+    </HBox>
+
+    <!-- Tabela de peças/conjuntos -->
+    <TableView fx:id="tabelaItens" styleClass="custom-table" VBox.vgrow="ALWAYS">
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+        <columns>
+            <TableColumn fx:id="colCodigo" prefWidth="180" text="Código de Barras"/>
+            <TableColumn fx:id="colDescricao" prefWidth="360" text="Descrição da Peça / Conjunto"/>
+            <TableColumn fx:id="colTipo" prefWidth="120" text="Tipo"/>
+            <TableColumn fx:id="colStatus" prefWidth="120" text="Status"/>
+        </columns>
+    </TableView>
+
+    <!-- Formulário CRUD -->
+    <VBox spacing="10" styleClass="footer-box">
+        <Label styleClass="label-bold" text="Itens do Pedido (selecione uma linha para editar)"/>
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <TextField fx:id="txtCodigo" prefWidth="170" promptText="Código de barras" styleClass="input-field"/>
+            <TextField fx:id="txtDescricao" promptText="Descrição da peça / conjunto" styleClass="input-field" HBox.hgrow="ALWAYS"/>
+            <ComboBox fx:id="cbTipo" prefWidth="140" styleClass="combo-field"/>
+            <ComboBox fx:id="cbStatus" prefWidth="130" styleClass="combo-field"/>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Button onAction="#handleAdicionar" styleClass="btn-primary" text="Adicionar"/>
+            <Button onAction="#handleSalvar" styleClass="btn-secondary" text="Salvar alterações"/>
+            <Button onAction="#handleExcluir" styleClass="btn-danger" text="Excluir"/>
+            <Button onAction="#handleLimpar" styleClass="btn-secondary" text="Limpar"/>
+        </HBox>
+    </VBox>
+
+    <!-- Progresso -->
+    <VBox spacing="5" styleClass="footer-box">
+        <HBox alignment="CENTER_LEFT">
+            <Label styleClass="label-bold" text="Progresso da Separação:"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblProgresso" styleClass="label-bold" text="0% (0 / 0 itens)"/>
+        </HBox>
+        <ProgressBar fx:id="progressBar" maxWidth="Infinity" progress="0.0" styleClass="custom-progress"/>
+    </VBox>
+
+</VBox>
